@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="@dimen/circle_thumbnail_diam" android:width="@dimen/circle_thumbnail_diam"/>
+    <solid android:color="@color/cirle_thumbnail_color"/>
+    <corners android:radius="50dp"/>
+</shape>

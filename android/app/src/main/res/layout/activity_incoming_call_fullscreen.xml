@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.AppCompat"
+    tools:context=".IncomingCallActivity">
+
+    <RelativeLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:title="@string/incoming_call"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/red_bg"
+                app:titleTextColor="@color/white_text"
+                android:textAlignment="center"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+        <LinearLayout
+            android:background="@color/white_text"
+            android:layout_below="@+id/appbar"
+            android:orientation="vertical"
+            android:id="@+id/display_section"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:layout_width="match_parent">
+
+                <LinearLayout
+                    android:paddingTop="@dimen/call_screen_padding_top"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/calling_user_text"
+                        android:textColor="@color/black_text_color"
+                        android:text="@string/call_from_caption_text"
+                        android:textSize="@dimen/calling_caption_text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"/>
+
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/default_call_text_margin_h"
+                        android:gravity="center"
+                        android:background="@drawable/circle_thumbnail_shape"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp">
+
+                        <ImageView
+                            android:src="@drawable/ic_baseline_person_24_white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_marginTop="@dimen/default_call_text_margin_h"
+                        android:textColor="@color/black_text_color"
+                        android:textAlignment="center"
+                        android:id="@+id/in_contact_phone_display"
+                        android:textSize="@dimen/calling_contact_text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/calling_user_ended_text"
+                        android:textColor="@color/black_text_color"
+                        android:text="@string/calling_user_ended_text"
+                        android:textSize="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"/>
+
+
+
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/default_call_text_margin_h"
+                        android:textColor="@color/black_text_color"
+                        android:text="00 : 00"
+                        android:textAlignment="center"
+                        android:id="@+id/audio_call_timer"
+                        android:textSize="@dimen/calling_contact_text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:background="@color/red_bg"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:id="@+id/microphone_btn"
+                    android:text="@string/mute_btn_text"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/mic_on_icon"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_baseline_mic_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/mic_off_icon"
+                        android:visibility="gone"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_baseline_mic_off_24_white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="2"
+                    android:background="@color/green"
+                    android:text="@string/accept_btn_text"
+                    android:id="@+id/accept_call_btn"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_baseline_call_24_white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="2"
+                    android:text="@string/accept_btn_text"
+                    android:id="@+id/end_call_btn"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_baseline_call_end_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:text="@string/video_btn_text"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:id="@+id/video_call_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/video_on_icon"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_baseline_videocam_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:id="@+id/video_off_icon"
+                        android:visibility="gone"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_baseline_videocam_off_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
